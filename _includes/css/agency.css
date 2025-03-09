@@ -625,7 +625,8 @@ section h3.section-subheading {
     border-radius: 100%;
     text-align: center;
     color: #fff;
-    background-color: #{{ site.data.template.color.primary }};
+    background-color: transparent;
+    /*background-color: #{{ site.data.template.color.primary }};*/
 }
 
 .timeline>li .timeline-image h4 {
@@ -694,6 +695,12 @@ section h3.section-subheading {
         width: 100px;
         height: 100px;
         margin-left: -50px;
+    }
+
+    .timeline>li .timeline-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* questo assicura che l'immagine riempia il contenitore */
     }
 
     .timeline>li .timeline-image h4 {
