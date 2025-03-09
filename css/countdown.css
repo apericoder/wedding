@@ -1,8 +1,12 @@
-/* Countdown styles */
 .countdown-wrapper {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin: 30px 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px 25px;
+    border-radius: 4px;
+    backdrop-filter: blur(3px);
+    display: inline-flex;
 }
 
 .countdown-item {
@@ -16,20 +20,25 @@
     content: ":";
     position: absolute;
     right: -5px;
-    top: 0;
-    font-size: 30px;
-    font-weight: bold;
-    color: #f8d56f; /* Usa il colore primario del tuo tema */
+    top: -5px;
+    font-size: 40px;
+    font-weight: 300;
+    color: #FFD700;
 }
 
 .countdown-item span {
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 48px;
+    font-weight: 300;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: block;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .countdown-label {
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
     margin-top: 5px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    font-weight: 300;
 }

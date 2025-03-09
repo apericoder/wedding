@@ -379,18 +379,13 @@ header .intro-text {
 
 header .intro-text .intro-lead-in {
     margin-bottom: 25px;
-    /*font-family: {{ site.data.template.font.secondary }};*/
-    /*font-family: {{ site.data.template.font.primary }};*/
-    font-family: 'Lato';
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-size: 22px;
-    /*font-style: italic;*/
+    letter-spacing: 1px;
     line-height: 22px;
-    /* Add text shadow for better contrast */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 
                  0 0 10px rgba(0, 0, 0, 0.6);
-    /* Slightly heavier font weight */
-    font-weight: 400;
 }
 
 header .intro-text .intro-heading {
@@ -434,18 +429,13 @@ header .intro-text .intro-heading {
 
     header .intro-text .intro-lead-in {
         margin-bottom: 25px;
-        /*font-family: {{ site.data.template.font.secondary }};*/
-        /*font-family: {{ site.data.template.font.primary }};*/
-        font-family: 'Lato';
+        font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 300;
-        font-size: 40px;
-        /*font-style: italic;*/
-        line-height: 40px;
-        /* Add text shadow for better contrast */
+        font-size: 30px;
+        letter-spacing: 1px;
+        line-height: 30px;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 
-                     0 0 10px rgba(0, 0, 0, 0.6);
-        /* Slightly heavier font weight */
-        font-weight: 400;
+                    0 0 10px rgba(0, 0, 0, 0.6);
     }
 
     header .intro-text .intro-heading {
@@ -1006,4 +996,18 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #{{ site.data.template.color.primary }};
+}
+
+.btn-ghost {
+    background-color: transparent;
+    border: 1px solid #C0A080;
+    color: #fff;
+    transition: all 0.3s ease;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.btn-ghost:hover {
+    background-color: rgba(192, 160, 128, 0.3);
+    color: #fff;
 }

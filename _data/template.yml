@@ -6,17 +6,17 @@ color:
   #secondary-dark: 333
   #muted: 777
   
-  # Classic gold
-  #primary: D4AF37    # Oro morbido per accenti e pulsanti
-  #secondary: FDF9F3  # Avorio per elementi secondari
-  #secondary-dark: 333333   # Grigio scuro per testo
+
+  # Gold ring color
+  #primary: FFBF00    # Oro brillante per abbinarsi agli anelli
+  #secondary: FDF9F3  # Avorio leggero per elementi secondari
+  #econdary-dark: 333333   # Grigio scuro per testo
   #muted: 777777      # Un grigio medio per testo secondario
-  
-  # Romantic pink
-  primary: F7D1CD    # Rosa pastello per accenti e pulsanti
-  secondary: EFEFEF  # Grigio tenue per elementi secondari
-  secondary-dark: 333333   # Grigio scuro per testo
-  muted: 777777      # Un grigio medio per testo secondario
+
+  primary: FFD700    # Oro più brillante (standard gold)
+  secondary: F5F2ED  # Mantieni l'avorio leggero
+  secondary-dark: 333333   # Mantieni il grigio scuro per il testo
+  muted: 777777      # Mantieni il grigio medio per testo secondario
 
 
 # Fonf families
