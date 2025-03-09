@@ -386,18 +386,27 @@ header .intro-text .intro-lead-in {
     font-size: 22px;
     /*font-style: italic;*/
     line-height: 22px;
+    /* Add text shadow for better contrast */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 
+                 0 0 10px rgba(0, 0, 0, 0.6);
+    /* Slightly heavier font weight */
+    font-weight: 400;
 }
 
 header .intro-text .intro-heading {
     margin-bottom: 25px;
-    /*text-transform: uppercase;*/
-    /*font-family: {{ site.data.template.font.primary }};*/
     font-family: 'stay_classy_sldtregular';
-    text-shadow: 2px 2px 4px #000000;
+    /* More pronounced shadow with increased spread and opacity */
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.95), 
+                 0 0 20px rgba(0, 0, 0, 0.8),
+                 0 0 30px rgba(0, 0, 0, 0.7);
+    /* Add a subtle white outline */
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
     font-size: 75px;
-    /*font-weight: 700;*/
     line-height: 75px;
     padding-bottom: 15px;
+    /* Slightly brighter color for better contrast */
+    color: #ffffff;
 }
 
 @media(min-width:768px) {
@@ -432,6 +441,11 @@ header .intro-text .intro-heading {
         font-size: 40px;
         /*font-style: italic;*/
         line-height: 40px;
+        /* Add text shadow for better contrast */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 
+                     0 0 10px rgba(0, 0, 0, 0.6);
+        /* Slightly heavier font weight */
+        font-weight: 400;
     }
 
     header .intro-text .intro-heading {
