@@ -1,0 +1,35 @@
+/* Countdown styles */
+.countdown-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.countdown-item {
+    color: #fff;
+    padding: 0 20px;
+    text-align: center;
+    position: relative;
+}
+
+.countdown-item:not(:last-child):after {
+    content: ":";
+    position: absolute;
+    right: -5px;
+    top: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #f8d56f; /* Usa il colore primario del tuo tema */
+}
+
+.countdown-item span {
+    font-size: 40px;
+    font-weight: bold;
+    display: block;
+}
+
+.countdown-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}

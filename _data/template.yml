@@ -1,9 +1,23 @@
 # Color settings (hex-codes without the leading hashtag)
 color:
-  primary: f8d56f
-  secondary: facf6b   
-  secondary-dark: 333
-  muted: 777
+  # Original
+  #primary: f8d56f
+  #secondary: facf6b   
+  #secondary-dark: 333
+  #muted: 777
+  
+  # Classic gold
+  #primary: D4AF37    # Oro morbido per accenti e pulsanti
+  #secondary: FDF9F3  # Avorio per elementi secondari
+  #secondary-dark: 333333   # Grigio scuro per testo
+  #muted: 777777      # Un grigio medio per testo secondario
+  
+  # Romantic pink
+  primary: F7D1CD    # Rosa pastello per accenti e pulsanti
+  secondary: EFEFEF  # Grigio tenue per elementi secondari
+  secondary-dark: 333333   # Grigio scuro per testo
+  muted: 777777      # Un grigio medio per testo secondario
+
 
 # Fonf families
 font:
