@@ -1011,3 +1011,49 @@ body {
     background-color: rgba(192, 160, 128, 0.3);
     color: #fff;
 }
+
+/* Adjusting title position - move up */
+header .intro-text .intro-heading {
+    padding-top: -20px; /* Using negative padding to pull title up */
+    margin-top: -50px; /* Adding negative margin for stronger upward movement */
+    margin-bottom: 30px; /* Keep space below the title */
+  }
+  
+  /* Make date and location text slightly smaller */
+  header .intro-text .intro-lead-in {
+    font-size: 20px; /* Slightly smaller than original 22px */
+    margin-bottom: 25px;
+  }
+  
+  /* Adjust for larger screens */
+  @media(min-width:768px) {
+    header .intro-text .intro-heading {
+      padding-top: -30px;
+      margin-top: -60px; /* More aggressive shift for larger screens */
+    }
+    
+    header .intro-text .intro-lead-in {
+      font-size: 26px; /* Slightly smaller than original 30px */
+    }
+  }
+  
+  /* Make the button more visible - gold background instead of transparent */
+  .btn-ghost {
+    background-color: #FFD700; /* Gold color matching the logo */
+    border: 1px solid #FFD700;
+    color: #fff;
+    transition: all 0.3s ease;
+    font-weight: 300; /* More elegant, lighter weight */
+    letter-spacing: 3px; /* Increased letter spacing for elegance */
+    text-transform: uppercase;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 18px 36px; /* Slightly adjusted padding */
+  }
+  
+  .btn-ghost:hover {
+    background-color: #F5D300;
+    border-color: #F5D300;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
