@@ -1,0 +1,58 @@
+/* Aggiungi questo alla fine del file css/agency.css o in un file CSS personalizzato */
+
+/* Contenitore a dimensione fissa per le immagini del portfolio */
+#portfolio .portfolio-item .portfolio-link {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    max-width: 400px;
+    height: 240px; /* Altezza fissa per tutti i contenitori */
+    overflow: hidden; /* Nasconde le parti dell'immagine che eccedono */
+}
+
+/* Fa in modo che le immagini riempiano il contenitore mantenendo il rapporto */
+#portfolio .portfolio-item .portfolio-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Riempie lo spazio mantenendo le proporzioni */
+    object-position: center; /* Centra l'immagine nel contenitore */
+    transition: transform 0.3s ease; /* Effetto di zoom fluido al passaggio del mouse */
+}
+
+/* Effetto hover - zoom leggero */
+#portfolio .portfolio-item .portfolio-link:hover img {
+    transform: scale(1.05);
+}
+
+/* Migliora l'aspetto dell'effetto hover */
+#portfolio .portfolio-item .portfolio-hover {
+    background-color: rgba(255, 215, 0, 0.8); /* Usa il colore oro del tema con trasparenza */
+}
+
+/* Assicura anche che le immagini nei modal (finestre popup) siano uniformi */
+.portfolio-modal .modal-content img {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px; /* Altezza massima per le immagini nei modal */
+    object-fit: contain; /* Contiene l'intera immagine nel contenitore */
+    margin: 0 auto 20px; /* Centra l'immagine e aggiunge spazio sotto */
+}
+
+/* Portfolio caption - migliora lo spazio */
+#portfolio .portfolio-caption {
+    padding: 15px;
+    height: 100px; /* Altezza fissa per i caption */
+}
+
+/* Assicura che i titoli non siano troppo grandi */
+#portfolio .portfolio-caption h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* Per la versione responsive */
+@media(max-width: 767px) {
+    #portfolio .portfolio-item .portfolio-link {
+        height: 200px; /* Altezza leggermente ridotta su mobile */
+    }
+}

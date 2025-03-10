@@ -1,53 +1,53 @@
-- title: Activity
-  subtitle: Description
+- title: Punta Aderci Nature Reserve
+  subtitle: Natural Paradise
   modal-id: 1
   img: 1.jpg
   thumbnail: 1.jpg
-  drive: X minutes
-  link: https://goo.gl/maps/MY49ntTHETuat5jN8
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique rutrum mauris nec rutrum. Nam sem ex, bibendum vitae velit eu, tempor sagittis nunc. Donec nunc erat, tempor ac finibus vel, molestie eget augue. Curabitur eleifend venenatis mi, sagittis faucibus ex pellentesque in. Etiam efficitur, augue sed faucibus laoreet, ligula diam euismod ipsum, facilisis pharetra sapien tortor eget nibh. Nulla vel purus suscipit, rutrum diam.
+  drive: 15 minutes
+  link: https://goo.gl/maps/N8ZMQwJAC9SqmvQD6
+  description: The Punta Aderci Regional Nature Reserve protects the most beautiful and interesting stretch of coastline in Abruzzo. It extends from Punta Penna beach, adjacent to Vasto's port, to the mouth of the Sinello River. The Punta Aderci promontory characterizes the entire area, offering a 360° view of the entire Reserve, with the backdrop of the mountain profiles of the three national parks. It's an ideal place for walks, mountain bike excursions on the old railway track, or canoeing, where it's possible to spot dolphins and admire the Halymenia floresia, considered the most beautiful red algae in the Mediterranean.
 
-- title: Activity
-  subtitle: Description
+- title: Palazzo d'Avalos
+  subtitle: Historic Museum Complex
   modal-id: 2
   img: 2.jpg
   thumbnail: 2.jpg
-  drive: X minutes
-  link: https://goo.gl/maps/MY49ntTHETuat5jN8
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique rutrum mauris nec rutrum. Nam sem ex, bibendum vitae velit eu, tempor sagittis nunc. Donec nunc erat, tempor ac finibus vel, molestie eget augue. Curabitur eleifend venenatis mi, sagittis faucibus ex pellentesque in. Etiam efficitur, augue sed faucibus laoreet, ligula diam euismod ipsum, facilisis pharetra sapien tortor eget nibh. Nulla vel purus suscipit, rutrum diam.
+  drive: 5 minutes
+  link: https://goo.gl/maps/AKbUPHb5JCuWNSXk7
+  description: Overlooking the sea and a symbol of the city, Palazzo d'Avalos dominates the landscape with its majesty and its Neapolitan garden. It is one of the most significant examples of Abruzzese Renaissance architecture from the second half of the sixteenth century. It houses four museums including the Archaeological Museum, the Art Gallery with works by the Palizzi family, the "Mediterranean" Contemporary Art collection, and the Ancient Costume Museum. The palace is also known for its spectacular Neapolitan garden overlooking the sea, restored to its former glory by a renovation that returned it to its original late eighteenth-century layout.
 
-- title: Activity
-  subtitle: Description
+- title: Loggia Amblingh
+  subtitle: The Balcony Over the Sea
   modal-id: 3
   img: 3.jpg
   thumbnail: 3.jpg
-  drive: X minutes
-  link: https://goo.gl/maps/MY49ntTHETuat5jN8
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique rutrum mauris nec rutrum. Nam sem ex, bibendum vitae velit eu, tempor sagittis nunc. Donec nunc erat, tempor ac finibus vel, molestie eget augue. Curabitur eleifend venenatis mi, sagittis faucibus ex pellentesque in. Etiam efficitur, augue sed faucibus laoreet, ligula diam euismod ipsum, facilisis pharetra sapien tortor eget nibh. Nulla vel purus suscipit, rutrum diam.
+  drive: 7 minutes
+  link: https://goo.gl/maps/DqHAzXBGy61zJtbm8
+  description: Loggia Amblingh is a long balcony that looks toward the sea, offering one of the most beautiful views in Vasto of the Marina coast and the entire gulf. Structured as a large balcony, on one side it has a sequence of wall-houses that rarely open into narrow alleys, on the other side walls and railings that delimit the road with views of green slopes and beyond to the blue sea. On clear days, the view can reach as far as the Tremiti Islands. Along this promenade, there are several places to eat that occupy the wider spaces with their outdoor seating, making it one of the most frequented streets, especially in the evening.
 
-- title: Activity
-  subtitle: Description
+- title: Historic Center & Cathedral
+  subtitle: Cultural Experience
   modal-id: 4
   img: 4.jpg
   thumbnail: 4.jpg
-  drive: X minutes
-  link: https://goo.gl/maps/MY49ntTHETuat5jN8
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique rutrum mauris nec rutrum. Nam sem ex, bibendum vitae velit eu, tempor sagittis nunc. Donec nunc erat, tempor ac finibus vel, molestie eget augue. Curabitur eleifend venenatis mi, sagittis faucibus ex pellentesque in. Etiam efficitur, augue sed faucibus laoreet, ligula diam euismod ipsum, facilisis pharetra sapien tortor eget nibh. Nulla vel purus suscipit, rutrum diam.
+  drive: 5 minutes
+  link: https://goo.gl/maps/w5bPwTMz6p6qG5pu8
+  description: Vasto's historic center is a gem to explore, with its narrow alleys and ancient buildings. The Cathedral of San Giuseppe, with its simple Romanesque façade, is an important landmark. The interior, originally Baroque, was reworked in Neo-Gothic style in 1853. The ceiling is geometric and flat, with green-striped supporting columns and Corinthian capitals. The altar is raised and accessible by stairs, with a modern organ towering behind, illuminated by the rose window on the façade. The cathedral was elevated to this rank in 1853 and in 1986 became a co-cathedral.
 
-- title: Activity
-  subtitle: Description
+- title: Vasto Marina Beaches
+  subtitle: Seaside Relaxation
   modal-id: 5
   img: 5.jpg
   thumbnail: 5.jpg
-  drive: X minutes
-  link: https://goo.gl/maps/MY49ntTHETuat5jN8
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique rutrum mauris nec rutrum. Nam sem ex, bibendum vitae velit eu, tempor sagittis nunc. Donec nunc erat, tempor ac finibus vel, molestie eget augue. Curabitur eleifend venenatis mi, sagittis faucibus ex pellentesque in. Etiam efficitur, augue sed faucibus laoreet, ligula diam euismod ipsum, facilisis pharetra sapien tortor eget nibh. Nulla vel purus suscipit, rutrum diam.
+  drive: 10 minutes
+  link: https://goo.gl/maps/RUZJwQVCpVFPwLFX7
+  description: Marina di Vasto is a picturesque seaside resort known for its crystal-clear waters and breathtaking views. Its sandy beaches stretch for kilometers along the Adriatic Sea coast, surrounded by lush green hills. The beach offers numerous services such as umbrellas and sun loungers to make your stay more comfortable. There are also many cafes, restaurants, and shops on the promenade near the beach where you can enjoy refreshments or snacks while admiring the incredible panorama. The area offers many activities both on land and at sea, from swimming to kayaking or windsurfing, making it an ideal destination for outdoor enthusiasts.
 
-- title: Activity
-  subtitle: Description
+- title: Aqualand del Vasto
+  subtitle: Fun Water Park
   modal-id: 6
   img: 6.jpg
   thumbnail: 6.jpg
-  drive: X minutes
-  link: https://goo.gl/maps/MY49ntTHETuat5jN8
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique rutrum mauris nec rutrum. Nam sem ex, bibendum vitae velit eu, tempor sagittis nunc. Donec nunc erat, tempor ac finibus vel, molestie eget augue. Curabitur eleifend venenatis mi, sagittis faucibus ex pellentesque in. Etiam efficitur, augue sed faucibus laoreet, ligula diam euismod ipsum, facilisis pharetra sapien tortor eget nibh. Nulla vel purus suscipit, rutrum diam.
+  drive: 12 minutes
+  link: https://goo.gl/maps/HzcykVWsJP9aUHWP8
+  description: Aqualand del Vasto is the largest water park in central-southern Italy. With 3,000 square meters of pools, over 1 km of slides, and 50,000 square meters dedicated to green spaces, it represents a true natural paradise. Whether you're a lover of relaxation or want to have fun with the most exciting water attractions, Aqualand is the right place to best enjoy the summer. The park is particularly suitable for families with children, offering fun for all ages in a safe and well-maintained environment.
