@@ -1,5 +1,5 @@
- <!-- Portfolio Modals -->
- {% for post in site.data.en.thingstodo %}
+<!-- Модальные окна портфолио -->
+{% for post in site.data.ru.thingstodo %}
     <div class="portfolio-modal modal fade" id="portfolioModal{{ post.modal-id }}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -17,11 +17,11 @@
                             <img src="/wedding/img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
                             <p>{{ post.description }}</p>
                             <ul class="list-inline item-details">
-                                <li><i class="fa fa-car"></i> Drive from Plaza:
+                                <li><i class="fa fa-car"></i> Время в пути от Plaza:
                                     <strong><a href="{{ post.link }}">{{ post.drive }}</a></strong>
                                 </li>
                             </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Закрыть</button>
                         </div>
                     </div>
                 </div>

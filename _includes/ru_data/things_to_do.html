@@ -1,14 +1,14 @@
-<!-- Things To Do Section -->
+<!-- Раздел Чем Заняться -->
 <section id="portfolio">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Things To Do</h2>
-                <h3 class="section-subheading text-muted">Discover the wonders of Vasto during your stay for our wedding. From the natural beauty of the Punta Aderci Reserve to historical attractions like Palazzo d'Avalos, there is so much to explore and appreciate.</h3>
+                <h2 class="section-heading">Чем Заняться</h2>
+                <h3 class="section-subheading text-muted">Откройте для себя чудеса Васто во время вашего пребывания на нашей свадьбе. От природной красоты заповедника Пунта Адерчи до исторических достопримечательностей, таких как Палаццо д'Авалос, здесь есть что исследовать и чем восхищаться.</h3>
             </div>
         </div>
         <div class="row">
-        {% for post in site.data.en.thingstodo %}
+        {% for post in site.data.ru.thingstodo %}
             <div class="col-md-4 col-sm-6 portfolio-item">
                 <a href="#portfolioModal{{ post.modal-id }}" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
