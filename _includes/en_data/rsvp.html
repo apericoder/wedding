@@ -1,0 +1,304 @@
+<!-- RSVP Section con bottoni funzionanti -->
+<section id="rsvp" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">RSVP</h2>
+                <h3 class="section-subheading text-muted">Please confirm your attendance by May 30, 2025.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <form id="rsvpForm" class="ajaxForm" action="https://formcarry.com/s/R38lqicl6qE" method="POST">
+                    <!-- Anti-spam honeypot fields -->
+                    <input type="text" name="_gotcha" style="display: none">
+                    
+                    <!-- Family Information -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Contact Information</h4>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Family Name" name="familyName" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email (for confirmation)" name="email">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Attendees Section -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>ATTENDEES</h4>
+                            <p class="text-muted">Please provide details for each person attending.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Container for all attendees -->
+                    <div id="attendeesContainer">
+                        <!-- First Attendee Form (Default) -->
+                        <div class="attendee-form" data-index="0">
+                            <h5 class="attendee-title">ATTENDEE #1</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="First Name" name="attendees[0][firstName]" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Last Name" name="attendees[0][lastName]" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select class="form-control" name="attendees[0][menu]" required>
+                                            <option value="" disabled selected>Menu Selection</option>
+                                            <option value="fish">Fish menu (standard)</option>
+                                            <option value="meat">Meat menu</option>
+                                            <option value="kids">Kids menu</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select class="form-control" name="attendees[0][isChild]">
+                                            <option value="no" selected>Adult</option>
+                                            <option value="yes">Child (under 12)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Dietary Restrictions:</label>
+                                        <div class="checkbox-group">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="lactose"> Lactose
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="gluten"> Celiac/Gluten
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="favism"> Favism
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="nuts"> Nuts
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="nickel"> Nickel
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="child-options" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <select class="form-control" name="attendees[0][highchair]">
+                                                <option value="no" selected>No highchair needed</option>
+                                                <option value="yes">Needs highchair</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    
+                    <!-- Buttons to add/remove attendees -->
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button type="button" id="addAttendeeBtn" class="btn btn-default add-attendee-btn">
+                                <i class="fa fa-plus"></i> Add Another Attendee
+                            </button>
+                            <button type="button" id="removeAttendeeBtn" class="btn btn-default" style="display: none;">
+                                <i class="fa fa-minus"></i> Remove Last Attendee
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Notes -->
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Additional notes or special requests" name="additionalNotes"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- reCAPTCHA -->
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit button -->
+                    <div class="row">
+                        <div class="col-lg-12 text-center" style="margin-top: 20px;">
+                            <button type="submit" id="submitButton" class="btn btn-xl">Submit RSVP</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .attendee-form {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .checkbox-group {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .checkbox-inline {
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+        
+        hr {
+            margin: 15px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .g-recaptcha {
+            display: inline-block;
+            margin: 20px 0;
+        }
+    </style>
+    
+    <!-- Google reCAPTCHA Script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- Script per gestire il form -->
+    <script>
+    $(document).ready(function() {
+        // Contatore per tracciare il numero di partecipanti
+        var attendeeCount = 1;
+        
+        // Toggle per le opzioni bambino
+        $(document).on('change', 'select[name$="[isChild]"]', function() {
+            var childOptions = $(this).closest('.attendee-form').find('.child-options');
+            if ($(this).val() === 'yes') {
+                childOptions.slideDown();
+            } else {
+                childOptions.slideUp();
+            }
+        });
+        
+        // Aggiunta di un nuovo partecipante
+        $("#addAttendeeBtn").click(function() {
+            attendeeCount++;
+            
+            // Clone del primo form partecipante
+            var newAttendee = $('.attendee-form').first().clone();
+            
+            // Aggiorna il titolo
+            newAttendee.find('.attendee-title').text('ATTENDEE #' + attendeeCount);
+            
+            // Aggiorna gli attributi name degli input con il nuovo indice
+            newAttendee.find('input, select, textarea').each(function() {
+                var name = $(this).attr('name');
+                if (name) {
+                    $(this).attr('name', name.replace('[0]', '[' + (attendeeCount-1) + ']'));
+                    // Reset dei valori
+                    if ($(this).attr('type') === 'text' || $(this).is('textarea')) {
+                        $(this).val('');
+                    } else if ($(this).attr('type') === 'checkbox') {
+                        $(this).prop('checked', false);
+                    } else if ($(this).is('select')) {
+                        $(this).prop('selectedIndex', 0);
+                    }
+                }
+            });
+            
+            // Nasconde le opzioni per bambini
+            newAttendee.find('.child-options').hide();
+            
+            // Aggiungi il nuovo form dopo l'ultimo
+            $('.attendee-form').last().after(newAttendee);
+            
+            // Mostra il pulsante per rimuovere
+            if (attendeeCount > 1) {
+                $('#removeAttendeeBtn').show();
+            }
+        });
+        
+        // Rimozione dell'ultimo partecipante
+        $("#removeAttendeeBtn").click(function() {
+            if (attendeeCount > 1) {
+                $('.attendee-form').last().remove();
+                attendeeCount--;
+                
+                // Nascondi il pulsante di rimozione se c'è solo un partecipante
+                if (attendeeCount === 1) {
+                    $('#removeAttendeeBtn').hide();
+                }
+            }
+        });
+        
+        // Gestione dell'invio del form
+        $(".ajaxForm").submit(function(e) {
+            e.preventDefault();
+            
+            // Verifica reCAPTCHA
+            var recaptchaResponse = grecaptcha.getResponse();
+            if(recaptchaResponse.length === 0) {
+                alert('Please verify that you are not a robot.');
+                return false;
+            }
+            
+            // Disabilita il pulsante per prevenire invii multipli
+            $("#submitButton").prop('disabled', true).text('Submitting...');
+            
+            // Invia il form
+            var formData = $(this).serialize() + "&g-recaptcha-response=" + recaptchaResponse;
+            var href = $(this).attr("action");
+            
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: href,
+                data: formData,
+                success: function(response) {
+                    if(response.status == "success") {
+                        alert('Thank you! Your RSVP has been recorded.');
+                        // Reset del form
+                        $("#rsvpForm")[0].reset();
+                        // Mantieni solo il primo attendee
+                        $('.attendee-form:not(:first)').remove();
+                        attendeeCount = 1;
+                        $('#removeAttendeeBtn').hide();
+                        // Reset reCAPTCHA
+                        grecaptcha.reset();
+                        // Riabilita il pulsante
+                        $("#submitButton").prop('disabled', false).text('Submit RSVP');
+                    } else {
+                        alert("An error occurred: " + response.message);
+                        $("#submitButton").prop('disabled', false).text('Submit RSVP');
+                    }
+                },
+                error: function() {
+                    alert("There was an error submitting your form. Please try again.");
+                    $("#submitButton").prop('disabled', false).text('Submit RSVP');
+                }
+            });
+        });
+    });
+    </script>
+</section>
