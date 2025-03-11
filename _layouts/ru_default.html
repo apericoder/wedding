@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+  {% include /ru_data/head.html %}
+
+
+    <body id="page-top" class="index">
+
+    {% include /ru_data/header.html %}
+    {% include /ru_data/events.html %}
+    {% include /ru_data/venue.html %}
+    {% include /ru_data/travel.html %}
+    {% include /ru_data/stay.html %}
+    {% include /ru_data/things_to_do.html %}
+    {% include /ru_data/FAQ.html %} 
+    {% include /ru_data/rsvp.html %}
+    {% include /ru_data/footer.html %}
+    {% include /ru_data/modals.html %}
+    {% include /ru_data/js.html %}
+    {% if jekyll.environment == 'production' %}
+        {% include analytics.html %}
+    {% endif %}
+
+    </body>
+</html>
