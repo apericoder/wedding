@@ -149,45 +149,54 @@
             </div>
         </div>
     </div>
+</section>
+
+<!-- CSS for RSVP form -->
+<style>
+    .attendee-form {
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
     
-    <style>
-        .attendee-form {
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .checkbox-group {
-            margin-top: 10px;
-            padding: 15px;
-            background-color: white;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-        }
-        
-        .checkbox-inline {
-            margin-right: 15px;
-            margin-bottom: 10px;
-        }
-        
-        hr {
-            margin: 15px 0;
-            border-top: 1px solid #ddd;
-        }
-        
-        .g-recaptcha {
-            display: inline-block;
-            margin: 20px 0;
-        }
-    </style>
+    .checkbox-group {
+        margin-top: 10px;
+        padding: 15px;
+        background-color: white;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
     
-    <!-- Google reCAPTCHA Script -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    .checkbox-inline {
+        margin-right: 15px;
+        margin-bottom: 10px;
+    }
     
-    <!-- Script per gestire il form -->
-    <script>
-    $(document).ready(function() {
+    hr {
+        margin: 15px 0;
+        border-top: 1px solid #ddd;
+    }
+    
+    .g-recaptcha {
+        display: inline-block;
+        margin: 20px 0;
+    }
+</style>
+
+<!-- Google reCAPTCHA Script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- Script per gestire il form RSVP -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifica che jQuery sia disponibile
+    if (typeof jQuery === 'undefined') {
+        console.error('RSVP form requires jQuery. Make sure it is loaded before RSVP scripts.');
+        return;
+    }
+    
+    jQuery(function($) {
         // Contatore per tracciare il numero di partecipanti
         var attendeeCount = 1;
         
@@ -203,6 +212,7 @@
         
         // Aggiunta di un nuovo partecipante
         $("#addAttendeeBtn").click(function() {
+            console.log("Add attendee button clicked");
             attendeeCount++;
             
             // Clone del primo form partecipante
@@ -241,6 +251,7 @@
         
         // Rimozione dell'ultimo partecipante
         $("#removeAttendeeBtn").click(function() {
+            console.log("Remove attendee button clicked");
             if (attendeeCount > 1) {
                 $('.attendee-form').last().remove();
                 attendeeCount--;
@@ -255,19 +266,26 @@
         // Gestione dell'invio del form
         $(".ajaxForm").submit(function(e) {
             e.preventDefault();
+            console.log("Form submission initiated");
             
-            // Verifica reCAPTCHA
-            var recaptchaResponse = grecaptcha.getResponse();
-            if(recaptchaResponse.length === 0) {
-                alert('Please verify that you are not a robot.');
-                return false;
+            // Verifica reCAPTCHA (se configurato)
+            if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse) {
+                var recaptchaResponse = grecaptcha.getResponse();
+                if(recaptchaResponse.length === 0) {
+                    alert('Please verify that you are not a robot.');
+                    return false;
+                }
             }
             
             // Disabilita il pulsante per prevenire invii multipli
             $("#submitButton").prop('disabled', true).text('Submitting...');
             
             // Invia il form
-            var formData = $(this).serialize() + "&g-recaptcha-response=" + recaptchaResponse;
+            var formData = $(this).serialize();
+            if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse) {
+                formData += "&g-recaptcha-response=" + grecaptcha.getResponse();
+            }
+            
             var href = $(this).attr("action");
             
             $.ajax({
@@ -284,21 +302,24 @@
                         $('.attendee-form:not(:first)').remove();
                         attendeeCount = 1;
                         $('#removeAttendeeBtn').hide();
-                        // Reset reCAPTCHA
-                        grecaptcha.reset();
+                        // Reset reCAPTCHA se presente
+                        if (typeof grecaptcha !== 'undefined' && grecaptcha.reset) {
+                            grecaptcha.reset();
+                        }
                         // Riabilita il pulsante
                         $("#submitButton").prop('disabled', false).text('Submit RSVP');
                     } else {
-                        alert("An error occurred: " + response.message);
+                        alert("An error occurred: " + (response.message || "Unknown error"));
                         $("#submitButton").prop('disabled', false).text('Submit RSVP');
                     }
                 },
-                error: function() {
-                    alert("There was an error submitting your form. Please try again.");
+                error: function(xhr, status, error) {
+                    console.error("AJAX error:", status, error);
+                    alert("There was an error submitting your form. Please try again or contact us directly.");
                     $("#submitButton").prop('disabled', false).text('Submit RSVP');
                 }
             });
         });
     });
-    </script>
-</section>
+});
+</script>
