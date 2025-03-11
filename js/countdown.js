@@ -4,24 +4,7 @@
  */
 document.addEventListener('DOMContentLoaded', function() {
     // Set the date we're counting down to (July 27, 2025)
-    var countDownDate = new Date("Jul 27, 2025 00:00:00").getTime();
-    
-    // Elementi del DOM per il countdown
-    var daysElement = document.getElementById("days");
-    var hoursElement = document.getElementById("hours");
-    var minutesElement = document.getElementById("minutes");
-    var secondsElement = document.getElementById("seconds");
-    var countdownElement = document.getElementById("countdown");
-    
-    // Verifica che gli elementi esistano
-    if (!daysElement || !hoursElement || !minutesElement || !secondsElement || !countdownElement) {
-        console.error("Countdown elements not found in the DOM");
-        return;
-    }
-    
-    // Determina la lingua utilizzata per il messaggio finale
-    var isItalian = document.documentElement.lang === 'it' || 
-                   document.querySelector('.countdown-label:first-child').textContent === 'Giorni';
+    var countDownDate = new Date("Jul 27, 2025 16:30:00").getTime();
     
     // Funzione per aggiornare il countdown
     function updateCountdown() {
@@ -37,16 +20,27 @@ document.addEventListener('DOMContentLoaded', function() {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-        // Display the result in the elements
-        daysElement.innerHTML = days;
-        hoursElement.innerHTML = hours;
-        minutesElement.innerHTML = minutes;
-        secondsElement.innerHTML = seconds;
+        // Elementi del DOM per il countdown - controlliamo ogni volta perché potrebbero non essere ancora caricati
+        var daysElement = document.getElementById("days");
+        var hoursElement = document.getElementById("hours");
+        var minutesElement = document.getElementById("minutes");
+        var secondsElement = document.getElementById("seconds");
         
-        // If the count down is finished, write some text
+        // Display the result in the elements if they exist
+        if (daysElement) daysElement.innerHTML = days;
+        if (hoursElement) hoursElement.innerHTML = hours;
+        if (minutesElement) minutesElement.innerHTML = minutes;
+        if (secondsElement) secondsElement.innerHTML = seconds;
+        
+        // If the count down is finished
         if (distance < 0) {
             clearInterval(countdownInterval);
-            countdownElement.innerHTML = isItalian ? "Oggi è il grande giorno!" : "Today is the day!";
+            
+            // Imposta tutti i valori a zero invece di cambiare l'intero HTML
+            if (daysElement) daysElement.innerHTML = "0";
+            if (hoursElement) hoursElement.innerHTML = "0";
+            if (minutesElement) minutesElement.innerHTML = "0";
+            if (secondsElement) secondsElement.innerHTML = "0";
         }
     }
     
