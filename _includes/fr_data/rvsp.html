@@ -1,10 +1,10 @@
-<!-- RSVP Section con bottoni funzionanti -->
+<!-- RSVP Section - Versione Italiana -->
 <section id="rsvp" class="bg-light-gray">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">RSVP</h2>
-                <h3 class="section-subheading text-muted">Please confirm your attendance by May 30, 2025.</h3>
+                <h3 class="section-subheading text-muted">Conferma la tua partecipazione entro il 30 maggio 2025.</h3>
             </div>
         </div>
         <div class="row">
@@ -16,12 +16,12 @@
                     <!-- Family Information -->
                     <div class="row">
                         <div class="col-md-12">
-                            <h4>Contact Information</h4>
+                            <h4>Informazioni di Contatto</h4>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Family Name" name="familyName" required>
+                                <input type="text" class="form-control" placeholder="Cognome" name="familyName" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email (for confirmation)" name="email">
+                                <input type="email" class="form-control" placeholder="Email (per conferma)" name="email">
                             </div>
                         </div>
                     </div>
@@ -29,8 +29,8 @@
                     <!-- Attendees Section -->
                     <div class="row">
                         <div class="col-md-12">
-                            <h4>ATTENDEES</h4>
-                            <p class="text-muted">Please provide details for each person attending.</p>
+                            <h4>PARTECIPANTI</h4>
+                            <p class="text-muted">Fornisci i dettagli per ogni persona che parteciperà.</p>
                         </div>
                     </div>
                     
@@ -38,16 +38,16 @@
                     <div id="attendeesContainer">
                         <!-- First Attendee Form (Default) -->
                         <div class="attendee-form" data-index="0">
-                            <h5 class="attendee-title">ATTENDEE #1</h5>
+                            <h5 class="attendee-title">PARTECIPANTE #1</h5>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name" name="attendees[0][firstName]" required>
+                                        <input type="text" class="form-control" placeholder="Nome" name="attendees[0][firstName]" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name" name="attendees[0][lastName]" required>
+                                        <input type="text" class="form-control" placeholder="Cognome" name="attendees[0][lastName]" required>
                                     </div>
                                 </div>
                             </div>
@@ -55,18 +55,18 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <select class="form-control" name="attendees[0][menu]" required>
-                                            <option value="" disabled selected>Menu Selection</option>
-                                            <option value="fish">Fish menu (standard)</option>
-                                            <option value="meat">Meat menu</option>
-                                            <option value="kids">Kids menu</option>
+                                            <option value="" disabled selected>Scelta Menu</option>
+                                            <option value="fish">Menu pesce (standard)</option>
+                                            <option value="meat">Menu carne</option>
+                                            <option value="kids">Menu bambini</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <select class="form-control" name="attendees[0][isChild]">
-                                            <option value="no" selected>Adult</option>
-                                            <option value="yes">Child (under 12)</option>
+                                            <option value="no" selected>Adulto</option>
+                                            <option value="yes">Bambino (sotto i 12 anni)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -74,22 +74,22 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Dietary Restrictions:</label>
+                                        <label>Restrizioni Alimentari:</label>
                                         <div class="checkbox-group">
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" name="attendees[0][intolerances][]" value="lactose"> Lactose
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="lactose"> Lattosio
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" name="attendees[0][intolerances][]" value="gluten"> Celiac/Gluten
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="gluten"> Celiachia/Glutine
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" name="attendees[0][intolerances][]" value="favism"> Favism
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="favism"> Favismo
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" name="attendees[0][intolerances][]" value="nuts"> Nuts
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="nuts"> Frutta secca
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" name="attendees[0][intolerances][]" value="nickel"> Nickel
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="nickel"> Nichel
                                             </label>
                                         </div>
                                     </div>
@@ -100,8 +100,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <select class="form-control" name="attendees[0][highchair]">
-                                                <option value="no" selected>No highchair needed</option>
-                                                <option value="yes">Needs highchair</option>
+                                                <option value="no" selected>Non necessita seggiolone</option>
+                                                <option value="yes">Necessita seggiolone</option>
                                             </select>
                                         </div>
                                     </div>
@@ -115,10 +115,10 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <button type="button" id="addAttendeeBtn" class="btn btn-default add-attendee-btn">
-                                <i class="fa fa-plus"></i> Add Another Attendee
+                                <i class="fa fa-plus"></i> Aggiungi un altro partecipante
                             </button>
                             <button type="button" id="removeAttendeeBtn" class="btn btn-default" style="display: none;">
-                                <i class="fa fa-minus"></i> Remove Last Attendee
+                                <i class="fa fa-minus"></i> Rimuovi ultimo partecipante
                             </button>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Additional notes or special requests" name="additionalNotes"></textarea>
+                                <textarea class="form-control" placeholder="Note aggiuntive o richieste speciali" name="additionalNotes"></textarea>
                             </div>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                     <!-- Submit button -->
                     <div class="row">
                         <div class="col-lg-12 text-center" style="margin-top: 20px;">
-                            <button type="submit" id="submitButton" class="btn btn-xl">Submit RSVP</button>
+                            <button type="submit" id="submitButton" class="btn btn-xl">Invia RSVP</button>
                         </div>
                     </div>
                 </form>
