@@ -1064,3 +1064,93 @@ header .intro-text .intro-heading {
     color: #fff;
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   }
+
+  /* Modifiche da aggiungere a _includes/css/agency.css */
+
+/* SOLO PER MOBILE - Miglioramenti per la leggibilità */
+@media only screen and (max-width: 767px) {
+    /* Migliorare la visibilità del testo principale solo su mobile */
+    header .intro-text .intro-heading {
+      /* Ombra più definita per migliore leggibilità su mobile */
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.95),
+                   0 0 15px rgba(0, 0, 0, 0.9),
+                   0 0 20px rgba(0, 0, 0, 0.8);
+      /* Leggero tratto bianco più visibile */
+      -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+      /* Un po' più grande su mobile per migliore leggibilità */
+      font-size: 65px;
+      line-height: 65px;
+      /* Sfondo semi-trasparente dietro al testo per migliorare contrasto */
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    
+    /* Migliorare visibilità data e località solo su mobile */
+    header .intro-text .intro-lead-in {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 1), 
+                  0 0 10px rgba(0, 0, 0, 0.8);
+      font-weight: 400;
+      font-size: 22px;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    
+    /* Migliorare il countdown solo su mobile */
+    header .countdown-wrapper {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin: 20px auto;
+    }
+    
+    header .countdown-item {
+      padding: 0 8px;
+    }
+    
+    header .countdown-item span {
+      font-size: 32px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    }
+    
+    header .countdown-label {
+      font-size: 10px;
+    }
+    
+    /* Migliorare il bottone "TELL ME MORE" solo su mobile */
+    header .btn-ghost {
+      background-color: #FFD700;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      color: #fff;
+      font-weight: 400;
+      border: 2px solid #fff;
+      padding: 15px 30px;
+    }
+    
+    /* Migliorare l'aspetto della sezione Eventi solo su mobile */
+    #events .timeline-image {
+      border: 5px solid #f1f1f1;
+      background-color: #ffffff;
+    }
+    
+    #events .timeline-panel {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    
+    /* Migliora leggibilità testi contenuto solo su mobile */
+    .text-muted {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    
+    h3.section-subheading {
+      font-size: 16px;
+    }
+  }
