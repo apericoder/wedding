@@ -1065,28 +1065,3 @@ header .intro-text .intro-heading {
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   }
 
-
-/* SOLO MOBILE: Riposiziona il testo principale più in basso nell'header */
-@media only screen and (max-width: 767px) {
-    /* Aumenta solo il padding-top per spostare il testo più in basso */
-    header .intro-text {
-      padding-top: 170px;
-    }
-    
-    /* Rimuovi qualsiasi sfondo aggiunto in precedenza */
-    header .intro-text .intro-heading {
-      background-color: transparent;
-      padding: 0;
-    }
-    
-    /* Assicura che l'immagine di sfondo sia visibile */
-    header {
-      background-image: url('../img/backgrounds/header.jpg');
-      background-position: center center;
-    }
-    
-    /* Leggera ombra per migliorare la leggibilità del testo senza box */
-    header .intro-text .intro-heading {
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-    }
-  }
