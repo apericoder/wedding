@@ -1,0 +1,99 @@
+/* Mobile Overrides - CSS specifico per la visualizzazione mobile */
+
+/* Stili generali per migliorare contrasto e leggibilità su mobile */
+@media only screen and (max-width: 767px) {
+    /* Migliora leggibilità testo principale con sfondo semi-trasparente */
+    header .intro-text .intro-heading {
+      background-color: rgba(0, 0, 0, 0.5) !important;
+      padding: 15px !important;
+      margin: 0 auto 20px !important;
+      max-width: 90% !important;
+      display: inline-block !important;
+      border-radius: 8px !important;
+      /* Aumenta spessore ombra testo */
+      text-shadow: 2px 2px 8px #000000, 
+                   2px 2px 10px #000000, 
+                   0 0 20px #000000 !important;
+      /* Contorno più visibile */
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    /* Sfondo per data e location per maggiore leggibilità */
+    header .intro-text .intro-lead-in {
+      background-color: rgba(0, 0, 0, 0.5) !important;
+      padding: 8px 15px !important;
+      border-radius: 5px !important;
+      margin-bottom: 10px !important;
+      display: inline-block !important;
+      /* Migliora visibilità testo */
+      text-shadow: 1px 1px 3px #000000, 
+                   0 0 5px #000000 !important;
+      font-weight: 500 !important;
+    }
+    
+    /* Countdown più visibile (box scuro) */
+    .countdown-wrapper {
+      background-color: rgba(0, 0, 0, 0.7) !important;
+      padding: 10px !important;
+      border-radius: 8px !important;
+      border: 1px solid rgba(255, 215, 0, 0.3) !important;
+      display: inline-block !important;
+    }
+    
+    /* Cifre countdown più grandi e leggibili */
+    .countdown-item span {
+      color: white !important;
+      text-shadow: 1px 1px 3px #000000 !important;
+    }
+    
+    /* Etichette countdown più visibili */
+    .countdown-label {
+      color: white !important;
+      text-shadow: 1px 1px 2px #000000 !important;
+    }
+    
+    /* Bottone più visibile */
+    .btn-ghost {
+      background-color: #FFD700 !important;
+      color: #000 !important;
+      font-weight: 600 !important;
+      text-shadow: none !important;
+      border: 2px solid #000 !important;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+    }
+    
+    /* Miglioramento sezione eventi */
+    .timeline-panel {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      padding: 15px !important;
+      border-radius: 8px !important;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+      margin-bottom: 15px !important;
+    }
+    
+    /* Migliorare contrasto testi */
+    .text-muted {
+      color: #555 !important;
+    }
+    
+    /* Sezione header generale - aggiunta overlay scuro sull'immagine background */
+    header {
+      position: relative !important;
+    }
+    
+    header:before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background-color: rgba(0, 0, 0, 0.4) !important;
+      z-index: 1 !important;
+    }
+    
+    header .container {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+  }
