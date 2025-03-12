@@ -1064,3 +1064,20 @@ header .intro-text .intro-heading {
     color: #fff;
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   }
+
+/* Aggiungi questo alla fine di _includes/css/agency.css */
+
+/* SOLO MOBILE: Riposiziona il testo principale più in basso nell'header */
+@media only screen and (max-width: 767px) {
+    /* Aumenta il padding-top SOLO SU MOBILE per spostare il testo più in basso */
+    header .intro-text {
+      padding-top: 170px;
+    }
+    
+    /* Riduzione dimensione del testo SOLO SU MOBILE */
+    header .intro-text .intro-heading {
+      font-size: 65px;
+      line-height: 65px;
+      margin-bottom: 20px;
+    }
+  }
