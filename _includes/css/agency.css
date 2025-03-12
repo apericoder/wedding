@@ -415,7 +415,7 @@ header .intro-text .intro-heading {
     background-repeat: none;
     -webkit-background-size: cover;
     -moz-background-size: cover;
-    background-size: cover;
+    background-size: contain;
     -o-background-size: cover;
     /*opacity: 0.5;*/
 	}
