@@ -1044,18 +1044,20 @@ header .intro-text .intro-heading {
     }
   }
   
+  
   /* Make the button more visible - gold background instead of transparent */
+  /*
   .btn-ghost {
-    background-color: #FFD700; /* Gold color matching the logo */
+    background-color: #FFD700; //Gold color matching the logo 
     border: 1px solid #FFD700;
     color: #fff;
     transition: all 0.3s ease;
-    font-weight: 300; /* More elegant, lighter weight */
-    letter-spacing: 3px; /* Increased letter spacing for elegance */
+    font-weight: 300; 
+    letter-spacing: 3px; 
     text-transform: uppercase;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    padding: 18px 36px; /* Slightly adjusted padding */
+    padding: 18px 36px; 
   }
   
   .btn-ghost:hover {
@@ -1064,8 +1066,31 @@ header .intro-text .intro-heading {
     color: #fff;
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   }
+*/
+/* Improved button styling for better readability */
+/* Improved button styling for better readability */
+.btn-ghost {
+    background-color: rgba(255, 215, 0, 0.85); /* Semi-transparent gold background */
+    border: 2px solid #FFD700; /* Slightly thicker gold border */
+    color: #fff;
+    transition: all 0.3s ease;
+    font-weight: 600; /* Increased from 300 for better readability */
+    letter-spacing: 3px; /* Kept your original spacing */
+    text-transform: uppercase; /* Kept from your original */
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif; /* Kept from your original */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Enhanced text shadow for better contrast */
+    padding: 18px 36px; /* Kept your original padding */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Added subtle shadow around the button */
+}
 
-  /* Add these styles to css/countdown.css */
+.btn-ghost:hover {
+    background-color: rgba(245, 211, 0, 0.95); /* Using your hover color with slight transparency */
+    border-color: #F5D300; /* Kept your original hover border color */
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Enhanced golden glow effect on hover */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Darker text shadow on hover for better readability */
+}
+
 
 /* Make countdown responsive */
 @media (max-width: 767px) {
