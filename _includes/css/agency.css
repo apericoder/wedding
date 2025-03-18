@@ -1191,3 +1191,57 @@ header .intro-text .intro-heading {
       margin-right: 2px !important;
     }
   }
+
+
+/* Timeline mobile fixes - Aggiungi questo alla fine del file */
+@media (max-width: 767px) {
+    /* Make sure images are fully visible in timeline */
+    .timeline > li .timeline-image {
+      width: 80px;
+      height: 80px;
+      margin-left: 0;
+      overflow: hidden; /* Ensure the image doesn't overflow */
+      background-color: #fff; /* Add background in case image fails to load */
+    }
+    
+    .timeline > li .timeline-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensure proper scaling */
+      object-position: center; /* Center the image */
+    }
+  }
+  
+  /* Extra small devices adjustments */
+  @media (max-width: 480px) {
+    .timeline > li .timeline-image {
+      width: 70px; /* Even smaller on very small screens */
+      height: 70px;
+      left: 5px; /* Adjust position */
+    }
+    
+    .timeline:before {
+      left: 39px; /* Adjust the timeline line position */
+    }
+    
+    .timeline > li .timeline-panel {
+      padding: 0 20px 0 85px; /* Further adjust padding */
+    }
+    
+    /* Better spacing for event information */
+    .timeline .timeline-heading h4 {
+      font-size: 16px;
+    }
+    
+    .timeline .timeline-heading h4.subheading {
+      font-size: 14px;
+    }
+  }
+  
+  /* Additional fix for the timeline on landscape mobile */
+  @media (max-width: 767px) and (orientation: landscape) {
+    .timeline > li .timeline-image {
+      width: 70px;
+      height: 70px;
+    }
+  }
