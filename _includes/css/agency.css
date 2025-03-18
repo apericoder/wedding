@@ -1245,3 +1245,63 @@ header .intro-text .intro-heading {
       height: 70px;
     }
   }
+
+
+  /* Stile per l'etichetta MENU nel pulsante hamburger */
+.menu-label {
+  display: block;
+  color: white;
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Miglioramenti per la visualizzazione del pulsante menu */
+.navbar-toggle {
+  padding: 10px 12px;
+  margin-top: 8px;
+  background-color: #{{ site.data.template.color.primary }};
+}
+
+/* Per dispositivi molto piccoli */
+@media (max-width: 320px) {
+  .menu-label {
+    font-size: 10px;
+  }
+  
+  .navbar-toggle {
+    padding: 8px 8px;
+  }
+}
+
+
+/* Stile per l'etichetta MENU nel pulsante hamburger */
+.menu-label {
+    display: block;
+    color: white;
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  
+  /* Miglioramenti per la visualizzazione del pulsante menu */
+  .navbar-toggle {
+    padding: 10px 12px;
+    margin-top: 8px;
+    background-color: #{{ site.data.template.color.primary }};
+  }
+  
+  /* Per dispositivi molto piccoli */
+  @media (max-width: 320px) {
+    .menu-label {
+      font-size: 10px;
+    }
+    
+    .navbar-toggle {
+      padding: 8px 8px;
+    }
+  }
