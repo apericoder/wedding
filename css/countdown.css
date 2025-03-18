@@ -42,3 +42,47 @@
     opacity: 0.8;
     font-weight: 300;
 }
+
+/* Added for mobile responsiveness */
+
+/* Make countdown responsive */
+@media (max-width: 767px) {
+    .countdown-wrapper {
+      flex-wrap: nowrap;
+      width: auto;
+      max-width: 90%;
+    }
+    
+    .countdown-item {
+      padding: 0 10px;
+    }
+    
+    .countdown-item span {
+      font-size: 30px;
+    }
+    
+    .countdown-label {
+      font-size: 10px;
+      margin-top: 2px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .countdown-wrapper {
+      padding: 10px;
+    }
+    
+    .countdown-item {
+      padding: 0 5px;
+    }
+    
+    .countdown-item span {
+      font-size: 24px;
+    }
+    
+    .countdown-item:not(:last-child):after {
+      right: -2px;
+      top: -3px;
+      font-size: 24px;
+    }
+  }

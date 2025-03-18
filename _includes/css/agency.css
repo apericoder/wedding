@@ -1064,3 +1064,105 @@ header .intro-text .intro-heading {
     color: #fff;
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   }
+
+  /* Add these styles to css/countdown.css */
+
+/* Make countdown responsive */
+@media (max-width: 767px) {
+  .countdown-wrapper {
+    flex-wrap: nowrap;
+    width: auto;
+    max-width: 90%;
+  }
+  
+  .countdown-item {
+    padding: 0 10px;
+  }
+  
+  .countdown-item span {
+    font-size: 30px;
+  }
+  
+  .countdown-label {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-wrapper {
+    padding: 10px;
+  }
+  
+  .countdown-item {
+    padding: 0 5px;
+  }
+  
+  .countdown-item span {
+    font-size: 24px;
+  }
+  
+  .countdown-item:not(:last-child):after {
+    right: -2px;
+    top: -3px;
+    font-size: 24px;
+  }
+}
+
+/* Section for improving mobile responsiveness */
+.navbar-header span {
+    /* Rimuove qualsiasi modifica di display che potrebbe aver causato problemi */
+    display: inline !important;
+  }
+  
+  /* Regole solo per dispositivi mobili */
+  @media (max-width: 767px) {
+    /* Fix per la navbar su mobile */
+    .navbar-default {
+      background-color: rgba(34, 34, 34, 0.95) !important;
+      padding: 10px !important;
+    }
+    
+    /* Aggiustamenti per il logo e i bottoni delle lingue su mobile */
+    .navbar-header {
+      width: 100% !important;
+    }
+    
+    /* Corregge il padding del brand */
+    .navbar-header .brand {
+      padding-top: 0 !important;
+      font-size: 2em !important;
+    }
+    
+    /* Header background per mobile */
+    header {
+      background-image: url('{{ site.baseurl }}/img/backgrounds/header-mobile.jpg') !important;
+      background-position: center center !important;
+    }
+    
+    /* Scale down del testo header su mobile */
+    header .intro-text .intro-heading {
+      font-size: 50px !important;
+      line-height: 50px !important;
+      margin-top: 0 !important;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9) !important;
+    }
+    
+    header .intro-text .intro-lead-in {
+      font-size: 18px !important;
+      margin-bottom: 15px !important;
+    }
+  }
+  
+  /* Fixes specifici per schermi molto piccoli */
+  @media (max-width: 480px) {
+    .navbar-header .brand {
+      font-size: 1.8em !important;
+    }
+    
+    .btn-m {
+      padding: 2px 2px !important;
+      font-size: 12px !important;
+      margin-right: 2px !important;
+    }
+  }
