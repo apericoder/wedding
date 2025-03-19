@@ -1,12 +1,119 @@
 // RSVP form functionality
 $(document).ready(function() {
+    // Modifichiamo la gestione del submit per formattare correttamente i partecipanti
+    $('.ajaxForm').off('submit').on('submit', function(e) {
+        e.preventDefault();
+        var form = $(this);
+        
+        // Show loading state
+        $('#submitButton').prop('disabled', true).text('Submitting...');
+        
+        // Ottieni i dati base del form
+        var formData = form.serializeArray();
+        
+        // Troviamo tutti i partecipanti e formattiamoli in modo leggibile
+        var attendees = [];
+        var family = {};
+        var notes = "";
+        
+        // Raggruppa i dati per partecipante
+        var attendeeData = {};
+        
+        $.each(formData, function(i, field) {
+            if (field.name === 'familyName') {
+                family.name = field.value;
+            } else if (field.name === 'email') {
+                family.email = field.value;
+            } else if (field.name === 'additionalNotes') {
+                notes = field.value;
+            } else if (field.name.indexOf('attendees[') === 0) {
+                // Estrai l'indice e la proprietà
+                var matches = field.name.match(/attendees\[(\d+)\]\[([^\]]+)\]/);
+                if (matches) {
+                    var index = matches[1];
+                    var prop = matches[2];
+                    
+                    // Inizializza l'oggetto se non esiste
+                    if (!attendeeData[index]) {
+                        attendeeData[index] = {};
+                    }
+                    
+                    // Gestisci gli array (come intolleranze) raccogliendoli in un array
+                    if (prop.indexOf('intolerances') !== -1) {
+                        if (!attendeeData[index]['intolerances']) {
+                            attendeeData[index]['intolerances'] = [];
+                        }
+                        attendeeData[index]['intolerances'].push(field.value);
+                    } else {
+                        // Salva normalmente tutte le altre proprietà
+                        attendeeData[index][prop] = field.value;
+                    }
+                }
+            }
+        });
+        
+        // Formatta ogni partecipante
+        $.each(attendeeData, function(index, attendee) {
+            var text = attendee.firstName + ' ' + attendee.lastName + ' (Menu: ' + attendee.menu + ')';
+            
+            // Aggiungi dettagli bambino se applicabile
+            if (attendee.isChild === 'yes') {
+                text += ' - Bambino ';
+                if (attendee.childAge) {
+                    text += attendee.childAge === 'under1' ? 'sotto 1 anno' : attendee.childAge + ' anni';
+                }
+                if (attendee.highchair === 'yes') {
+                    text += ' - Necessita seggiolone';
+                }
+            }
+            
+            // Aggiungi intolleranze se presenti
+            if (attendee.intolerances && attendee.intolerances.length > 0) {
+                text += ' - Intolleranze: ' + attendee.intolerances.join(', ');
+            }
+            
+            attendees.push(text);
+        });
+        
+        // Crea i dati formattati da inviare
+        var formattedData = {
+            familyName: family.name || '',
+            email: family.email || '',
+            attendees_formatted: attendees.join('\n'),
+            additionalNotes: notes
+        };
+        
+        // Invia i dati formattati
+        $.ajax({
+            url: form.attr('action'),
+            method: form.attr('method'),
+            data: formattedData,
+            dataType: 'json',
+            success: function(response) {
+                // Show success message
+                form.html('<div class="alert alert-success text-center">' +
+                          '<h4>Thank you for your RSVP!</h4>' +
+                          '<p>We have received your submission and look forward to celebrating with you.</p>' +
+                          '</div>');
+            },
+            error: function(xhr, status, error) {
+                // Show error message
+                form.prepend('<div class="alert alert-danger">' +
+                             '<h4>Error!</h4>' +
+                             '<p>There was a problem submitting your RSVP. Please try again or contact us directly.</p>' +
+                             '</div>');
+                $('#submitButton').prop('disabled', false).text('Submit RSVP');
+            }
+        });
+    });
+
     // Add and remove attendee functionality
     var addBtn = $('#addAttendeeBtn');
     var removeBtn = $('#removeAttendeeBtn');
     var container = $('#attendeesContainer');
     
-    // Initialize event listeners for child options
-    initChildOptionListeners();
+    // Add event handlers for the child-related options
+    initChildOptions();
     
     // Add another attendee
     addBtn.click(function() {
@@ -25,7 +132,6 @@ $(document).ready(function() {
         newAttendee.find('input, select, textarea').each(function() {
             var input = $(this);
             var name = input.attr('name');
-            
             if (name) {
                 input.attr('name', name.replace(/\[0\]/g, '[' + newIndex + ']'));
             }
@@ -57,13 +163,15 @@ $(document).ready(function() {
         });
         
         // Hide the child options initially
-        newAttendee.find('.child-age-options, .highchair-options').hide();
+        newAttendee.find('.child-options').hide();
+        newAttendee.find('.child-age-options').hide();
+        newAttendee.find('.highchair-options').hide();
         
         // Append the new attendee form
         container.append(newAttendee);
         
-        // Add event listeners to the new elements
-        attachChildListeners(newIndex);
+        // Add event handlers to the new elements
+        addChildOptionsListeners(newIndex);
         
         // Show remove button if there's more than one attendee
         if (container.find('.attendee-form').length > 1) {
@@ -84,91 +192,44 @@ $(document).ready(function() {
         }
     });
     
-    // Initialize AJAX form submission
-    $('.ajaxForm').submit(function(e) {
-        e.preventDefault();
-        var form = $(this);
-        
-        // Show loading state
-        $('#submitButton').prop('disabled', true).text('Submitting...');
-        
-        // Serialize form data before sending
-        var formData = form.serializeArray();
-        
-        // Convert formData to a simple object (key/value pairs)
-        var formDataObj = {};
-        $.each(formData, function(i, field) {
-            // For fields with multiple values (like checkboxes)
-            if (field.name.includes('[]')) {
-                var baseName = field.name.replace('[]', '');
-                if (!formDataObj[baseName]) {
-                    formDataObj[baseName] = [];
-                }
-                formDataObj[baseName].push(field.value);
-            } else {
-                formDataObj[field.name] = field.value;
-            }
-        });
-        
-        // Send the form data as a string instead of an object
-        $.ajax({
-            url: form.attr('action'),
-            method: form.attr('method'),
-            data: $.param(formDataObj),
-            contentType: 'application/x-www-form-urlencoded',
-            success: function(response) {
-                // Show success message
-                form.html('<div class="alert alert-success text-center">' +
-                          '<h4>Thank you for your RSVP!</h4>' +
-                          '<p>We have received your submission and look forward to celebrating with you.</p>' +
-                          '</div>');
-            },
-            error: function(xhr, status, error) {
-                // Show error message
-                form.prepend('<div class="alert alert-danger">' +
-                             '<h4>Error!</h4>' +
-                             '<p>There was a problem submitting your RSVP. Please try again or contact us directly.</p>' +
-                             '</div>');
-                $('#submitButton').prop('disabled', false).text('Submit RSVP');
-            }
-        });
-    });
-    
-    // Functions for child options
-    function initChildOptionListeners() {
-        // Attach event listeners to all isChild selects
-        attachChildListeners(0);
+    // Function to initialize child option handlers
+    function initChildOptions() {
+        // For the first attendee (index 0)
+        addChildOptionsListeners(0);
     }
     
-    function attachChildListeners(index) {
-        // Child selection change handler
+    // Function to add child option listeners for a specific attendee
+    function addChildOptionsListeners(index) {
+        // Show/hide child options when isChild select changes
         $('#isChild_' + index).change(function() {
             toggleChildOptions(index);
         });
         
-        // Child age selection change handler
+        // Show/hide highchair option when child age changes
         $('#childAge_' + index).change(function() {
             checkHighchairNeeded(index);
         });
     }
     
+    // Function to toggle child options based on isChild select
     function toggleChildOptions(index) {
         var isChild = $('#isChild_' + index).val();
-        var childAgeOptions = $('#childAgeOptions_' + index);
+        var childOptions = $('#childAgeOptions_' + index);
         var highchairOptions = $('#highchairOptions_' + index);
         
         if (isChild === 'yes') {
-            childAgeOptions.slideDown();
-            // Reset age when switching from adult to child
+            childOptions.slideDown();
+            // Reset child age when toggling
             $('#childAge_' + index).val('');
-            // Hide highchair option until an age is selected
+            // Hide highchair options until age is selected
             highchairOptions.hide();
         } else {
-            childAgeOptions.slideUp();
+            childOptions.slideUp();
             highchairOptions.slideUp();
         }
     }
     
+    // Function to check if highchair is needed based on child age
     function checkHighchairNeeded(index) {
         var childAge = $('#childAge_' + index).val();
         var highchairOptions = $('#highchairOptions_' + index);
