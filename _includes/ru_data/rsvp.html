@@ -1,4 +1,4 @@
-<!-- Раздел RSVP с рабочими кнопками -->
+<!-- RSVP Section -->
 <section id="rsvp" class="bg-light-gray">
     <div class="container">
         <div class="row">
@@ -10,10 +10,10 @@
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
                 <form id="rsvpForm" class="ajaxForm" action="https://formcarry.com/s/R38lqicl6qE" method="POST">
-                    <!-- Поля защиты от спама -->
+                    <!-- Anti-spam honeypot fields -->
                     <input type="text" name="_gotcha" style="display: none">
                     
-                    <!-- Контактная информация -->
+                    <!-- Family Information -->
                     <div class="row">
                         <div class="col-md-12">
                             <h4>Контактная информация</h4>
@@ -26,19 +26,19 @@
                         </div>
                     </div>
                     
-                    <!-- Раздел участников -->
+                    <!-- Attendees Section -->
                     <div class="row">
                         <div class="col-md-12">
-                            <h4>УЧАСТНИКИ</h4>
-                            <p class="text-muted">Введите данные каждого гостя.</p>
+                            <h4>ГОСТИ</h4>
+                            <p class="text-muted">Укажите информацию о каждом присутствующем госте.</p>
                         </div>
                     </div>
                     
-                    <!-- Контейнер для всех участников -->
+                    <!-- Container for all attendees -->
                     <div id="attendeesContainer">
-                        <!-- Форма для первого участника (по умолчанию) -->
+                        <!-- First Attendee Form (Default) -->
                         <div class="attendee-form" data-index="0">
-                            <h5 class="attendee-title">УЧАСТНИК #1</h5>
+                            <h5 class="attendee-title">ГОСТЬ #1</h5>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -56,7 +56,7 @@
                                     <div class="form-group">
                                         <select class="form-control" name="attendees[0][menu]" required>
                                             <option value="" disabled selected>Выбор меню</option>
-                                            <option value="fish">Рыбное меню (стандартное)</option>
+                                            <option value="fish">Рыбное меню (стандарт)</option>
                                             <option value="meat">Мясное меню</option>
                                             <option value="kids">Детское меню</option>
                                         </select>
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <select class="form-control" name="attendees[0][isChild]">
+                                        <select class="form-control isChild-select" name="attendees[0][isChild]" id="isChild_0" data-index="0">
                                             <option value="no" selected>Взрослый</option>
                                             <option value="yes">Ребенок (до 12 лет)</option>
                                         </select>
@@ -80,7 +80,7 @@
                                                 <input type="checkbox" name="attendees[0][intolerances][]" value="lactose"> Лактоза
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" name="attendees[0][intolerances][]" value="gluten"> Целиакия/глютен
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="gluten"> Целиакия/Глютен
                                             </label>
                                             <label class="checkbox-inline">
                                                 <input type="checkbox" name="attendees[0][intolerances][]" value="favism"> Фавизм
@@ -95,39 +95,76 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="child-age-options" id="childAgeOptions_0" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Возраст ребенка:</label>
+                                            <select class="form-control childAge-select" name="attendees[0][childAge]" id="childAge_0" data-index="0">
+                                                <option value="" disabled selected>Выберите возраст</option>
+                                                <option value="under1">Младше 1 года</option>
+                                                <option value="1">1 год</option>
+                                                <option value="2">2 года</option>
+                                                <option value="3">3 года</option>
+                                                <option value="4">4 года</option>
+                                                <option value="5">5 лет</option>
+                                                <option value="6">6 лет</option>
+                                                <option value="7">7 лет</option>
+                                                <option value="8">8 лет</option>
+                                                <option value="9">9 лет</option>
+                                                <option value="10">10 лет</option>
+                                                <option value="11">11 лет</option>
+                                                <option value="12">12 лет</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="highchair-options" id="highchairOptions_0" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <select class="form-control" name="attendees[0][highchair]">
+                                                <option value="no" selected>Детский стульчик не нужен</option>
+                                                <option value="yes">Нужен детский стульчик</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <hr>
                         </div>
                     </div>
                     
-                    <!-- Кнопки для добавления/удаления участников -->
+                    <!-- Buttons to add/remove attendees -->
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <button type="button" id="addAttendeeBtn" class="btn btn-default add-attendee-btn">
-                                <i class="fa fa-plus"></i> Добавить участника
+                                <i class="fa fa-plus"></i> Добавить еще гостя
                             </button>
                             <button type="button" id="removeAttendeeBtn" class="btn btn-default" style="display: none;">
-                                <i class="fa fa-minus"></i> Удалить последнего участника
+                                <i class="fa fa-minus"></i> Удалить последнего гостя
                             </button>
                         </div>
                     </div>
                     
-                    <!-- Дополнительные заметки -->
+                    <!-- Notes -->
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Дополнительные пожелания или особые запросы" name="additionalNotes"></textarea>
+                                <textarea class="form-control" placeholder="Дополнительные примечания или особые запросы" name="additionalNotes"></textarea>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Google reCAPTCHA -->
+                    <!-- reCAPTCHA -->
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <div class="g-recaptcha" data-sitekey="6LcVk_EqAAAAAByWVK3Kks4Ig5af7n-p4-UNI8uG"></div>
                         </div>
                     </div>
                     
-                    <!-- Кнопка отправки -->
+                    <!-- Submit button -->
                     <div class="row">
                         <div class="col-lg-12 text-center" style="margin-top: 20px;">
                             <button type="submit" id="submitButton" class="btn btn-xl">Отправить RSVP</button>
@@ -139,7 +176,7 @@
     </div>
 </section>
 
-<!-- CSS стили для RSVP формы -->
+<!-- CSS for RSVP form -->
 <style>
     .attendee-form {
         background-color: #f9f9f9;

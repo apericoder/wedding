@@ -1,4 +1,4 @@
-<!-- RSVP Section con bottoni funzionanti -->
+<!-- RSVP Section -->
 <section id="rsvp" class="bg-light-gray">
     <div class="container">
         <div class="row">
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <select class="form-control" name="attendees[0][isChild]">
+                                        <select class="form-control isChild-select" name="attendees[0][isChild]" id="isChild_0" data-index="0">
                                             <option value="no" selected>Adult</option>
                                             <option value="yes">Child (under 12)</option>
                                         </select>
@@ -95,7 +95,32 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="child-options" style="display: none;">
+                            <div class="child-age-options" id="childAgeOptions_0" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Child's Age:</label>
+                                            <select class="form-control childAge-select" name="attendees[0][childAge]" id="childAge_0" data-index="0">
+                                                <option value="" disabled selected>Select age</option>
+                                                <option value="under1">Under 1 year</option>
+                                                <option value="1">1 year</option>
+                                                <option value="2">2 years</option>
+                                                <option value="3">3 years</option>
+                                                <option value="4">4 years</option>
+                                                <option value="5">5 years</option>
+                                                <option value="6">6 years</option>
+                                                <option value="7">7 years</option>
+                                                <option value="8">8 years</option>
+                                                <option value="9">9 years</option>
+                                                <option value="10">10 years</option>
+                                                <option value="11">11 years</option>
+                                                <option value="12">12 years</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="highchair-options" id="highchairOptions_0" style="display: none;">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">

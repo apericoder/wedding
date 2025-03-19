@@ -1,4 +1,4 @@
-<!-- Sezione RSVP con bottoni funzionanti -->
+<!-- RSVP Section -->
 <section id="rsvp" class="bg-light-gray">
     <div class="container">
         <div class="row">
@@ -10,10 +10,10 @@
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
                 <form id="rsvpForm" class="ajaxForm" action="https://formcarry.com/s/R38lqicl6qE" method="POST">
-                    <!-- Campi anti-spam -->
+                    <!-- Anti-spam honeypot fields -->
                     <input type="text" name="_gotcha" style="display: none">
                     
-                    <!-- Informazioni di contatto -->
+                    <!-- Family Information -->
                     <div class="row">
                         <div class="col-md-12">
                             <h4>Informazioni di contatto</h4>
@@ -26,17 +26,17 @@
                         </div>
                     </div>
                     
-                    <!-- Sezione partecipanti -->
+                    <!-- Attendees Section -->
                     <div class="row">
                         <div class="col-md-12">
                             <h4>PARTECIPANTI</h4>
-                            <p class="text-muted">Inserisci i dettagli di ogni persona presente.</p>
+                            <p class="text-muted">Fornisci i dettagli di ogni persona che parteciperà.</p>
                         </div>
                     </div>
                     
-                    <!-- Container per tutti i partecipanti -->
+                    <!-- Container for all attendees -->
                     <div id="attendeesContainer">
-                        <!-- Primo modulo partecipante (predefinito) -->
+                        <!-- First Attendee Form (Default) -->
                         <div class="attendee-form" data-index="0">
                             <h5 class="attendee-title">PARTECIPANTE #1</h5>
                             <div class="row">
@@ -55,7 +55,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <select class="form-control" name="attendees[0][menu]" required>
-                                            <option value="" disabled selected>Selezione menu</option>
+                                            <option value="" disabled selected>Selezione Menu</option>
                                             <option value="fish">Menu di pesce (standard)</option>
                                             <option value="meat">Menu di carne</option>
                                             <option value="kids">Menu bambini</option>
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <select class="form-control" name="attendees[0][isChild]">
+                                        <select class="form-control isChild-select" name="attendees[0][isChild]" id="isChild_0" data-index="0">
                                             <option value="no" selected>Adulto</option>
                                             <option value="yes">Bambino (meno di 12 anni)</option>
                                         </select>
@@ -86,7 +86,7 @@
                                                 <input type="checkbox" name="attendees[0][intolerances][]" value="favism"> Favismo
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" name="attendees[0][intolerances][]" value="nuts"> Frutta a guscio
+                                                <input type="checkbox" name="attendees[0][intolerances][]" value="nuts"> Frutta secca
                                             </label>
                                             <label class="checkbox-inline">
                                                 <input type="checkbox" name="attendees[0][intolerances][]" value="nickel"> Nichel
@@ -95,11 +95,48 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="child-age-options" id="childAgeOptions_0" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Età del bambino:</label>
+                                            <select class="form-control childAge-select" name="attendees[0][childAge]" id="childAge_0" data-index="0">
+                                                <option value="" disabled selected>Seleziona età</option>
+                                                <option value="under1">Meno di 1 anno</option>
+                                                <option value="1">1 anno</option>
+                                                <option value="2">2 anni</option>
+                                                <option value="3">3 anni</option>
+                                                <option value="4">4 anni</option>
+                                                <option value="5">5 anni</option>
+                                                <option value="6">6 anni</option>
+                                                <option value="7">7 anni</option>
+                                                <option value="8">8 anni</option>
+                                                <option value="9">9 anni</option>
+                                                <option value="10">10 anni</option>
+                                                <option value="11">11 anni</option>
+                                                <option value="12">12 anni</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="highchair-options" id="highchairOptions_0" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <select class="form-control" name="attendees[0][highchair]">
+                                                <option value="no" selected>Seggiolone non necessario</option>
+                                                <option value="yes">Necessita di seggiolone</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <hr>
                         </div>
                     </div>
                     
-                    <!-- Bottoni per aggiungere/rimuovere partecipanti -->
+                    <!-- Buttons to add/remove attendees -->
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <button type="button" id="addAttendeeBtn" class="btn btn-default add-attendee-btn">
@@ -111,7 +148,7 @@
                         </div>
                     </div>
                     
-                    <!-- Note aggiuntive -->
+                    <!-- Notes -->
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -120,14 +157,14 @@
                         </div>
                     </div>
                     
-                    <!-- Google reCAPTCHA -->
+                    <!-- reCAPTCHA -->
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <div class="g-recaptcha" data-sitekey="6LcVk_EqAAAAAByWVK3Kks4Ig5af7n-p4-UNI8uG"></div>
                         </div>
                     </div>
                     
-                    <!-- Pulsante di invio -->
+                    <!-- Submit button -->
                     <div class="row">
                         <div class="col-lg-12 text-center" style="margin-top: 20px;">
                             <button type="submit" id="submitButton" class="btn btn-xl">Invia RSVP</button>
@@ -139,7 +176,7 @@
     </div>
 </section>
 
-<!-- Stili CSS per il modulo RSVP -->
+<!-- CSS for RSVP form -->
 <style>
     .attendee-form {
         background-color: #f9f9f9;
