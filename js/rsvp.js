@@ -92,10 +92,68 @@ $(document).ready(function() {
         // Show loading state
         $('#submitButton').prop('disabled', true).text('Submitting...');
         
+        // Pre-process attendees data for better readability in emails
+        var formData = new FormData(form[0]);
+        var formDataObject = {};
+        
+        // Convert FormData to a regular object
+        for (var pair of formData.entries()) {
+            // Handle arrays (like checkboxes)
+            if (pair[0].includes('[]')) {
+                var key = pair[0].replace('[]', '');
+                if (!formDataObject[key]) formDataObject[key] = [];
+                formDataObject[key].push(pair[1]);
+            } else {
+                formDataObject[pair[0]] = pair[1];
+            }
+        }
+        
+        // Process the attendees data into a more readable format
+        var attendeesData = [];
+        var attendeeCount = $('.attendee-form').length;
+        
+        for (var i = 0; i < attendeeCount; i++) {
+            var attendee = {
+                firstName: formDataObject['attendees[' + i + '][firstName]'] || '',
+                lastName: formDataObject['attendees[' + i + '][lastName]'] || '',
+                menu: formDataObject['attendees[' + i + '][menu]'] || '',
+                isChild: formDataObject['attendees[' + i + '][isChild]'] || 'no'
+            };
+            
+            // Add child age if this is a child
+            if (attendee.isChild === 'yes') {
+                attendee.childAge = formDataObject['attendees[' + i + '][childAge]'] || '';
+                attendee.highchair = formDataObject['attendees[' + i + '][highchair]'] || 'no';
+            }
+            
+            // Handle intolerances which may be an array
+            var intolerances = [];
+            for (var key in formDataObject) {
+                if (key.includes('attendees[' + i + '][intolerances]')) {
+                    intolerances.push(formDataObject[key]);
+                }
+            }
+            attendee.intolerances = intolerances.join(', ');
+            
+            attendeesData.push(attendee);
+        }
+        
+        // Create a more structured object for the form
+        var processedData = {
+            familyName: formDataObject.familyName || '',
+            email: formDataObject.email || '',
+            attendees: attendeesData,
+            additionalNotes: formDataObject.additionalNotes || ''
+        };
+        
+        // Convert the processed data to JSON for debugging
+        console.log(JSON.stringify(processedData, null, 2));
+        
+        // Send the processed data
         $.ajax({
             url: form.attr('action'),
             method: form.attr('method'),
-            data: form.serialize(),
+            data: processedData,
             dataType: 'json',
             success: function(response) {
                 // Show success message
