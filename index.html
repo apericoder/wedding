@@ -1,3 +1,165 @@
----
-layout: en_default
----
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Olga + Michele</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="{{ site.description }}">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ "/css/webfontkit-StayClassy/stylesheet.css" | prepend: site.baseurl }}">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            text-align: center;
+        }
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('/img/backgrounds/header.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .loading-title {
+            font-family: 'stay_classy_sldtregular', 'Helvetica Neue', Helvetica, Arial, cursive;
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .loading-text {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .language-buttons {
+            margin-top: 20px;
+        }
+        .btn-language {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s;
+        }
+        .btn-language:hover {
+            background-color: #e6c300;
+            transform: translateY(-2px);
+        }
+        .loading-spinner {
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 5px solid #FFD700;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    
+    <script>
+        // Funzione di reindirizzamento linguistico
+        document.addEventListener('DOMContentLoaded', function() {
+            // Funzione per ottenere la lingua dal browser
+            function getBrowserLanguage() {
+                const language = navigator.language || navigator.userLanguage;
+                return language.substring(0, 2).toLowerCase(); // Ottiene solo il codice lingua: 'en', 'it', 'ru'
+            }
+            
+            // Controllo se la lingua è supportata
+            function isSupportedLanguage(lang) {
+                const supportedLanguages = ['en', 'it', 'ru'];
+                return supportedLanguages.includes(lang);
+            }
+            
+            // Funzione per reindirizzare alla pagina della lingua appropriata
+            function redirectToLanguage(lang) {
+                // URL per ogni lingua
+                const urls = {
+                    'en': '/en/index',
+                    'it': '/it/index',
+                    'ru': '/ru/index'
+                };
+                
+                // Salva la preferenza di lingua in localStorage
+                localStorage.setItem('preferredLanguage', lang);
+                
+                // Reindirizza all'URL appropriato
+                window.location.href = urls[lang];
+            }
+            
+            // Controlla se l'utente ha già selezionato una lingua
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            if (savedLanguage && isSupportedLanguage(savedLanguage)) {
+                redirectToLanguage(savedLanguage);
+                return;
+            }
+            
+            // Prova con la lingua del browser
+            const browserLang = getBrowserLanguage();
+            if (isSupportedLanguage(browserLang)) {
+                redirectToLanguage(browserLang);
+                return;
+            }
+            
+            // Default in inglese se non è stata trovata una lingua corrispondente
+            redirectToLanguage('en');
+        });
+        
+        // Funzione per impostare manualmente la lingua
+        function setLanguage(lang) {
+            localStorage.setItem('preferredLanguage', lang);
+        }
+    </script>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="loading-title">Olga + Michele</div>
+        <div class="loading-text">Redirecting to your language...</div>
+        <div class="loading-spinner"></div>
+        
+        <div class="language-buttons">
+            <p>Or select your preferred language:</p>
+            <a href="/en/index" class="btn-language" onclick="setLanguage('en')">English</a>
+            <a href="/it/index" class="btn-language" onclick="setLanguage('it')">Italiano</a>
+            <a href="/ru/index" class="btn-language" onclick="setLanguage('ru')">Русский</a>
+        </div>
+    </div>
+    
+    <noscript>
+        <div style="padding: 40px; text-align: center;">
+            <h2>JavaScript is required for automatic language detection</h2>
+            <p>Please select your language:</p>
+            <p>
+                <a href="/en/index" style="margin: 0 10px; padding: 10px 20px; background-color: #FFD700; color: white; text-decoration: none; border-radius: 3px;">English</a>
+                <a href="/it/index" style="margin: 0 10px; padding: 10px 20px; background-color: #FFD700; color: white; text-decoration: none; border-radius: 3px;">Italiano</a>
+                <a href="/ru/index" style="margin: 0 10px; padding: 10px 20px; background-color: #FFD700; color: white; text-decoration: none; border-radius: 3px;">Русский</a>
+            </p>
+        </div>
+    </noscript>
+</body>
+</html>
